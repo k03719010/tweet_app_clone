@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit"
   get "posts/:id" => "posts#show"
   post "posts/:id/update" => "posts#update"
+  post "posts/:id/destroy" => "posts#destroy"
 end
