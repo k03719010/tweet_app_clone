@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id]) 
     @user.name = params[:name]
     @user.email = params[:email]
     @user.image_name = "#{@user.id}.jpg"
@@ -39,5 +39,8 @@ class UsersController < ApplicationController
     else
       render("users/edit")
     end
+  end
+
+  def login_form
   end
 end

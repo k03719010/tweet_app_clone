@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   get "/" => "home#top"
   get "about" => "home#about"
+  get "login" => "users#login_form"
 
   get 'posts/index'
   get "posts/new" => "posts#new"
