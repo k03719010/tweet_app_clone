@@ -46,10 +46,13 @@ class UsersController < ApplicationController
 
   def login
     @user = User.find_by(email: params[:email],password: params[:password])
+    @email = params[:email]
+    @password = params[:password]
     if @user
       flash[:notice] = "ログインしました"
       redirect_to("/users/#{@user.id}")
     else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
       render("users/login_form")
     end
   end
