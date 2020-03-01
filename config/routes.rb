@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/" => "home#top"
   get "about" => "home#about"
   get "login" => "users#login_form"
+  post "login" => "users#login"
 
   get 'posts/index'
   get "posts/new" => "posts#new"
