@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user
+  before_action :ensure_correct_user, {only:[:edit,:update,:destroy]}
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -48,4 +49,14 @@ class PostsController < ApplicationController
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
+
+  #selfは使えないよねそりゃね
+  def ensure_correct_user
+    @user = User.find_by(id: params[:id])
+    if  @user != @current_user
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
+    end
+  end
+
 end
