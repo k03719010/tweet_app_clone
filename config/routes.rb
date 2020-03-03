@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   
   get "/" => "home#top"
   get "about" => "home#about"
+
+  post "likes/:post_id/create" => "likes#create"
 end

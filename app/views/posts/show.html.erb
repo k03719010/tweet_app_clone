@@ -15,6 +15,11 @@
           <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: :"post"}) %>
         </div>
       <% end %>
+      <% if Like.find_by(user_id: @user.id, post_id: @post.id)%>
+        <%= link_to("like", "/likes/#{@post.id}/create", {method: :"post"}) %>
+      <% else %>  
+        <%= link_to("unlike", "/likes/#{@post.id}/create", {method: :"post"}) %>
+      <% end %>
     </div>
   </div>
 </div>

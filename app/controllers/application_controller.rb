@@ -24,10 +24,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_correct_user
-    if params[:id] != @current_user
-      flash[:notice] = "権限がありません"
-      redirect_to("/posts/index")
-    end
-  end
+  
 end
