@@ -7,10 +7,19 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by(id: session[:user_id])
   end
 
+  #非ログイン状態でアクセスできないアクションに対する処理
   def authenticate_user
     if @current_user == nil
       flash[:notice] = "ログインしてください"
       redirect_to("/login")
+    end
+  end
+
+  #ログイン状態でアクセスできないアクションに対する処理
+  def forbit_login_user
+    if @current_user
+      flash[:notice] = "すでにログインしています"
+      redirect_to("/posts/index")
     end
   end
 end
