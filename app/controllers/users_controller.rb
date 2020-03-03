@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, {only:[:index,:update,:edit,:show]}
   before_action :forbit_login_user, {only:[:new,:create,:login_form,:login]}
+  before_action :ensure_correct_user, {only:[:edit,:update]}
 
   def index
     @users = User.all

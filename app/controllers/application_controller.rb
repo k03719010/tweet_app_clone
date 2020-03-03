@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   #非ログイン状態でアクセスできないアクションに対する処理
+  #もっとforbitと対象的な単語にしたほうがいいのでは？
   def authenticate_user
     if @current_user == nil
       flash[:notice] = "ログインしてください"
@@ -19,6 +20,13 @@ class ApplicationController < ActionController::Base
   def forbit_login_user
     if @current_user
       flash[:notice] = "すでにログインしています"
+      redirect_to("/posts/index")
+    end
+  end
+
+  def ensure_correct_user
+    if params[:id] != @current_user
+      flash[:notice] = "権限がありません"
       redirect_to("/posts/index")
     end
   end
