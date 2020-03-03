@@ -16,7 +16,7 @@
         </div>
       <% end %>
       <% if Like.find_by(user_id: @user.id, post_id: @post.id)%>
-        <%= link_to("like", "/likes/#{@post.id}/create", {method: :"post"}) %>
+        <%= link_to("like", "/likes/#{@post.id}/destroy", {method: :"post"}) %>
       <% else %>  
         <%= link_to("unlike", "/likes/#{@post.id}/create", {method: :"post"}) %>
       <% end %>
