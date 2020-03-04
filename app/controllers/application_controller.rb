@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+<<<<<<< HEAD
   # before_actionにset_current_userメソッドを指定してください
   before_action :set_current_user
   
@@ -25,4 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   
+=======
+  before_action :set_current_user
+  def set_current_user
+    @current_user =  User.find_by(id: session[:user_id])
+  end
+>>>>>>> e25e632355eca6318eb3facfa6b51cb6f79b0059
 end
