@@ -78,7 +78,7 @@ class UsersController < ApplicationController
   end
 
   def ensure_correct_user
-    if params[:id] != @current_user
+    if params[:id].to_i != @current_user.id
       flash[:notice] = "権限がありません"
       redirect_to("/posts/index")
     end
