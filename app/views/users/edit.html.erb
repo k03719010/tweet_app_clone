@@ -18,6 +18,9 @@
           <input type="submit" value="保存">
         </div>
       <% end %>
+      <%= link_to("/users/#{@user.id}/destroy") do %>
+        <button>※ユーザーの削除はこちら</button>
+      <% end %>
     </div>
   </div>
 </div>

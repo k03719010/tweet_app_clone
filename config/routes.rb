@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
   get "users/:id/likes" => "users#likes"
+  get "users/:id/destroy" => "users#destroy"
 
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
